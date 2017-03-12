@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{25D0F12B-A9FD-4809-923C-A9D348D7E28C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Elurnity.Animations</RootNamespace>
+    <AssemblyName>Elurnity.Animations</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Property\DelegatedProperty.cs" />
+    <Compile Include="Property\Property.cs" />
+    <Compile Include="Subject\ISubject.cs" />
+    <Compile Include="Subject\SubjectAction.cs" />
+    <Compile Include="Transitions\TimeTransition.cs" />
+    <Compile Include="Transitions\Transition.cs" />
+    <Compile Include="Transitions\TweenTransition.cs" />
+    <Compile Include="Animation.cs" />
+    <Compile Include="Tween\Tween.cs" />
+    <Compile Include="SimpleAnimation.cs" />
+    <Compile Include="Property\Lerp.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Property\" />
+    <Folder Include="Subject\" />
+    <Folder Include="Transitions\" />
+    <Folder Include="Tween\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Elurnity.BehaviourTrees\Elurnity.BehaviourTrees.csproj">
+      <Project>{3A20CF99-C017-451D-B01A-7F1AE177E972}</Project>
+      <Name>Elurnity.BehaviourTrees</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+</Project>
