@@ -69,6 +69,24 @@ public interface Property<T>
 
 A property is something we know how to interpolate.
 
+#### Properties
+
+- **ColorProperty**
+- **Vector2Property**
+- **Vector3Property**
+- **Vector4Property**
+- **QuaternionProperty**
+- **TransformProperty** composed of
+  - Vector3 localPosition;
+  - Vector3 localScale;
+  - Quaternion localRotation
+- **DelegatedProperty** 
+
+For simplify implicit conversion operators are avaiable:
+```
+ColorProperty colorProperty = Color.red;
+TransformProperty transformProperty = transform;
+```
 
 ### Subject
 
@@ -78,6 +96,8 @@ public interface ISubject<P> where P : Property<P>
     void Apply(P state);
 }
 ```
+#### Subjects
+- ***SubjectTransform***
 
 A subject defines how a property is applied.
 
@@ -96,3 +116,8 @@ public interface Transition : INode
 A transition is something which progresses from 0 to 1. Not necesarily based on time, it can be based on our custom logic.
 
 A transition can also be used as a node of a behaviour tree.
+
+#### Transitions
+- **TimeTransition**
+- **TweenTransition**
+- **AnimationCurveTransition** 
